@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package pbU;
+
+option go_package = "./";
+
+service UserServices{
+    //Unary method used 
+    rpc Signup(SignupRequest)returns(SignupRespnse);
+    rpc VerifyOTP(VerifyOTPRequest)returns(VerifyOTPRespnse);
+    rpc Login(LoginRequest)returns(LoginResponse);
+    rpc UserMenuList(RNoparam)returns(MenuItem);
+    rpc UserFoodByName(FoodByName)returns(MenuItem);
+    rpc UserMenuByID(MenuID)returns(MenuItem);
+}
+
+message SignupRequest{
+    string phone =1;
+}
+
+message SignupRespnse{
+    string message =1;
+}
+
+message VerifyOTPRequest{
+    string phone = 1;
+    string otp = 2;
+}
+
+message VerifyOTPRespnse{
+    string message = 1;
+    string token = 2;
+}
+
+message LoginRequest{
+    string phone = 1;
+}
+
+message LoginResponse{
+    string phone =1;
+    string token =2;
+}
+
+message RNoparam {}
+
+message MenuItem{
+    uint32 id = 1;
+    string category = 2;
+    string name = 3;
+    double price = 4;
+    string foodimage = 5;
+    string duration = 6;
+}
+
+message MenuID{
+    uint32 id = 1;
+}
+
+message FoodByName{
+    string name = 1;
+}
+
+message MenuList{
+    repeated MenuItem item = 1;
+}
