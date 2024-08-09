@@ -7,6 +7,7 @@ import (
 	"github.com/ratheeshkumar/restaurant_user_serviceV1/internal/handlers"
 	pb "github.com/ratheeshkumar/restaurant_user_serviceV1/internal/pb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 func NewGrpcServer(handlr *handlers.UserHandler) {
@@ -18,7 +19,8 @@ func NewGrpcServer(handlr *handlers.UserHandler) {
 	}
 
 	grp := grpc.NewServer()
-	pb.RegisterUserServicesServer(grp, handlr.UserServicesServer)
+	pb.RegisterUserServicesServer(grp, handlr)
+	reflection.Register(grp)
 
 	log.Printf("listening on gRPC server 8082")
 	if err := grp.Serve(lis); err != nil {

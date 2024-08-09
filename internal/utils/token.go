@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"os"
+
+	//"os/user"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -20,8 +22,9 @@ func GenerateToken(phone string, userid uint) (string, error) {
 
 	// Create the claims
 	claims := &model.UserClaims{
-		Phone:  phone,
 		UserID: userid,
+		Phone:  phone,
+		Role:   "user",
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Hour * 5).Unix(), // Token expires after 5 hours
 		},
@@ -38,30 +41,3 @@ func GenerateToken(phone string, userid uint) (string, error) {
 
 	return tokenString, nil
 }
-
-// func ValidateToken(tokenString string) (*model.UserClaims, error) {
-// 	// Get the secret key from environment variable
-// 	secretKey := os.Getenv("JWT_SECRET_KEY")
-// 	if secretKey == "" {
-// 		return nil, errors.New("JWT_SECRET_KEY not set in environment")
-// 	}
-
-// 	// Parse the token
-// 	token, err := jwt.ParseWithClaims(tokenString, &model.UserClaims{}, func(token *jwt.Token) (interface{}, error) {
-// 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-// 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
-// 		}
-// 		return []byte(secretKey), nil
-// 	})
-
-// 	if err != nil {
-// 		return nil, fmt.Errorf("failed to parse token: %w", err)
-// 	}
-
-// 	// Validate the token and return the claims
-// 	if claims, ok := token.Claims.(*model.UserClaims); ok && token.Valid {
-// 		return claims, nil
-// 	}
-
-// 	return nil, errors.New("invalid token")
-// }

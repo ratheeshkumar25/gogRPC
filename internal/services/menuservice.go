@@ -24,7 +24,7 @@ func (u *UserService) UserFoodByName(userpb *pb.FoodByName) (*pb.MenuItem, error
 }
 
 // UserMenuID implements services_inter.UserService.
-func (u *UserService) UserMenuID(userpb *pb.MenuID) (*pb.MenuItem, error) {
+func (u *UserService) UserMenuByID(userpb *pb.MenuID) (*pb.MenuItem, error) {
 
 	result, err := menu.FetchMenuByIDHandler(u.client, userpb)
 	if err != nil {
@@ -32,7 +32,7 @@ func (u *UserService) UserMenuID(userpb *pb.MenuID) (*pb.MenuItem, error) {
 	}
 
 	return &pb.MenuItem{
-		Id:        result.Id,
+		Id:        uint32(result.Id),
 		Category:  result.Category,
 		Name:      result.Name,
 		Price:     result.Price,
@@ -42,8 +42,7 @@ func (u *UserService) UserMenuID(userpb *pb.MenuID) (*pb.MenuItem, error) {
 }
 
 // UserMenuList implements services_inter.UserService.
-// UserMenuList implements services_inter.UserService.
-func (u *UserService) UserMenuList(userpb *pb.RNoparam) (*pb.MenuList, error) {
+func (u *UserService) UserMenuList(userpb *pb.RNoParam) (*pb.MenuList, error) {
 	result, err := menu.FetchByMenusHandler(u.client, userpb)
 	if err != nil {
 		return nil, err

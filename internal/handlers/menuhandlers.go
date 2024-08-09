@@ -16,7 +16,7 @@ func (u *UserHandler) UserFoodByName(ctx context.Context, p *pb.FoodByName) (*pb
 }
 
 func (u *UserHandler) UserMenuByID(ctx context.Context, p *pb.MenuID) (*pb.MenuItem, error) {
-	result, err := u.svc.UserMenuID(p)
+	result, err := u.svc.UserMenuByID(p)
 	if err != nil {
 		return nil, err
 	}
@@ -24,7 +24,7 @@ func (u *UserHandler) UserMenuByID(ctx context.Context, p *pb.MenuID) (*pb.MenuI
 	return result, nil
 }
 
-func (u *UserHandler) UserMenuList(ctx context.Context, p *pb.RNoparam) (*pb.MenuList, error) {
+func (u *UserHandler) UserMenuList(ctx context.Context, p *pb.RNoParam) (*pb.MenuList, error) {
 	result, err := u.svc.UserMenuList(p)
 	if err != nil {
 		return nil, err

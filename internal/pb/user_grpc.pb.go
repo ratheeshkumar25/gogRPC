@@ -31,11 +31,10 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServicesClient interface {
-	// Unary method used
 	Signup(ctx context.Context, in *SignupRequest, opts ...grpc.CallOption) (*SignupRespnse, error)
 	VerifyOTP(ctx context.Context, in *VerifyOTPRequest, opts ...grpc.CallOption) (*VerifyOTPRespnse, error)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
-	UserMenuList(ctx context.Context, in *RNoparam, opts ...grpc.CallOption) (*MenuItem, error)
+	UserMenuList(ctx context.Context, in *RNoParam, opts ...grpc.CallOption) (*MenuList, error)
 	UserFoodByName(ctx context.Context, in *FoodByName, opts ...grpc.CallOption) (*MenuItem, error)
 	UserMenuByID(ctx context.Context, in *MenuID, opts ...grpc.CallOption) (*MenuItem, error)
 }
@@ -78,9 +77,9 @@ func (c *userServicesClient) Login(ctx context.Context, in *LoginRequest, opts .
 	return out, nil
 }
 
-func (c *userServicesClient) UserMenuList(ctx context.Context, in *RNoparam, opts ...grpc.CallOption) (*MenuItem, error) {
+func (c *userServicesClient) UserMenuList(ctx context.Context, in *RNoParam, opts ...grpc.CallOption) (*MenuList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MenuItem)
+	out := new(MenuList)
 	err := c.cc.Invoke(ctx, UserServices_UserMenuList_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -112,11 +111,10 @@ func (c *userServicesClient) UserMenuByID(ctx context.Context, in *MenuID, opts 
 // All implementations must embed UnimplementedUserServicesServer
 // for forward compatibility
 type UserServicesServer interface {
-	// Unary method used
 	Signup(context.Context, *SignupRequest) (*SignupRespnse, error)
 	VerifyOTP(context.Context, *VerifyOTPRequest) (*VerifyOTPRespnse, error)
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
-	UserMenuList(context.Context, *RNoparam) (*MenuItem, error)
+	UserMenuList(context.Context, *RNoParam) (*MenuList, error)
 	UserFoodByName(context.Context, *FoodByName) (*MenuItem, error)
 	UserMenuByID(context.Context, *MenuID) (*MenuItem, error)
 	mustEmbedUnimplementedUserServicesServer()
@@ -135,7 +133,7 @@ func (UnimplementedUserServicesServer) VerifyOTP(context.Context, *VerifyOTPRequ
 func (UnimplementedUserServicesServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (UnimplementedUserServicesServer) UserMenuList(context.Context, *RNoparam) (*MenuItem, error) {
+func (UnimplementedUserServicesServer) UserMenuList(context.Context, *RNoParam) (*MenuList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserMenuList not implemented")
 }
 func (UnimplementedUserServicesServer) UserFoodByName(context.Context, *FoodByName) (*MenuItem, error) {
@@ -212,7 +210,7 @@ func _UserServices_Login_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _UserServices_UserMenuList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RNoparam)
+	in := new(RNoParam)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -224,7 +222,7 @@ func _UserServices_UserMenuList_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: UserServices_UserMenuList_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServicesServer).UserMenuList(ctx, req.(*RNoparam))
+		return srv.(UserServicesServer).UserMenuList(ctx, req.(*RNoParam))
 	}
 	return interceptor(ctx, in, info, handler)
 }

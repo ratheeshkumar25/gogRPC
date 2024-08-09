@@ -7,6 +7,6 @@ type UserService interface {
 	VerifyOTP(userpb *pb.VerifyOTPRequest) (*pb.VerifyOTPRespnse, error)
 	Login(userpb *pb.LoginRequest) (*pb.LoginResponse, error)
 	UserFoodByName(*pb.FoodByName) (*pb.MenuItem, error)
-	UserMenuID(*pb.MenuID) (*pb.MenuItem, error)
-	UserMenuList(*pb.RNoparam) (*pb.MenuList, error)
+	UserMenuByID(*pb.MenuID) (*pb.MenuItem, error)
+	UserMenuList(*pb.RNoParam) (*pb.MenuList, error)
 }

@@ -326,14 +326,14 @@ func (x *LoginResponse) GetToken() string {
 	return ""
 }
 
-type RNoparam struct {
+type RNoParam struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *RNoparam) Reset() {
-	*x = RNoparam{}
+func (x *RNoParam) Reset() {
+	*x = RNoParam{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_user_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -341,13 +341,13 @@ func (x *RNoparam) Reset() {
 	}
 }
 
-func (x *RNoparam) String() string {
+func (x *RNoParam) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RNoparam) ProtoMessage() {}
+func (*RNoParam) ProtoMessage() {}
 
-func (x *RNoparam) ProtoReflect() protoreflect.Message {
+func (x *RNoParam) ProtoReflect() protoreflect.Message {
 	mi := &file_user_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -359,8 +359,8 @@ func (x *RNoparam) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RNoparam.ProtoReflect.Descriptor instead.
-func (*RNoparam) Descriptor() ([]byte, []int) {
+// Deprecated: Use RNoParam.ProtoReflect.Descriptor instead.
+func (*RNoParam) Descriptor() ([]byte, []int) {
 	return file_user_proto_rawDescGZIP(), []int{6}
 }
 
@@ -615,7 +615,7 @@ var file_user_proto_rawDesc = []byte{
 	0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x70, 0x68,
 	0x6f, 0x6e, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x70, 0x68, 0x6f, 0x6e, 0x65,
 	0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x0a, 0x0a, 0x08, 0x52, 0x4e, 0x6f, 0x70, 0x61, 0x72,
+	0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x0a, 0x0a, 0x08, 0x52, 0x4e, 0x6f, 0x50, 0x61, 0x72,
 	0x61, 0x6d, 0x22, 0x9a, 0x01, 0x0a, 0x08, 0x4d, 0x65, 0x6e, 0x75, 0x49, 0x74, 0x65, 0x6d, 0x12,
 	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x02, 0x69, 0x64, 0x12,
 	0x1a, 0x0a, 0x08, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28,
@@ -645,8 +645,8 @@ var file_user_proto_rawDesc = []byte{
 	0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x70, 0x62, 0x55, 0x2e, 0x4c, 0x6f, 0x67, 0x69, 0x6e,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72,
 	0x4d, 0x65, 0x6e, 0x75, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x0d, 0x2e, 0x70, 0x62, 0x55, 0x2e, 0x52,
-	0x4e, 0x6f, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x1a, 0x0d, 0x2e, 0x70, 0x62, 0x55, 0x2e, 0x4d, 0x65,
-	0x6e, 0x75, 0x49, 0x74, 0x65, 0x6d, 0x12, 0x30, 0x0a, 0x0e, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f,
+	0x4e, 0x6f, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x1a, 0x0d, 0x2e, 0x70, 0x62, 0x55, 0x2e, 0x4d, 0x65,
+	0x6e, 0x75, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x30, 0x0a, 0x0e, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f,
 	0x6f, 0x64, 0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x0f, 0x2e, 0x70, 0x62, 0x55, 0x2e, 0x46,
 	0x6f, 0x6f, 0x64, 0x42, 0x79, 0x4e, 0x61, 0x6d, 0x65, 0x1a, 0x0d, 0x2e, 0x70, 0x62, 0x55, 0x2e,
 	0x4d, 0x65, 0x6e, 0x75, 0x49, 0x74, 0x65, 0x6d, 0x12, 0x2a, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72,
@@ -676,31 +676,31 @@ var file_user_proto_goTypes = []any{
 	(*VerifyOTPRespnse)(nil), // 3: pbU.VerifyOTPRespnse
 	(*LoginRequest)(nil),     // 4: pbU.LoginRequest
 	(*LoginResponse)(nil),    // 5: pbU.LoginResponse
-	(*RNoparam)(nil),         // 6: pbU.RNoparam
+	(*RNoParam)(nil),         // 6: pbU.RNoParam
 	(*MenuItem)(nil),         // 7: pbU.MenuItem
 	(*MenuID)(nil),           // 8: pbU.MenuID
 	(*FoodByName)(nil),       // 9: pbU.FoodByName
 	(*MenuList)(nil),         // 10: pbU.MenuList
 }
 var file_user_proto_depIdxs = []int32{
-	7, // 0: pbU.MenuList.item:type_name -> pbU.MenuItem
-	0, // 1: pbU.UserServices.Signup:input_type -> pbU.SignupRequest
-	2, // 2: pbU.UserServices.VerifyOTP:input_type -> pbU.VerifyOTPRequest
-	4, // 3: pbU.UserServices.Login:input_type -> pbU.LoginRequest
-	6, // 4: pbU.UserServices.UserMenuList:input_type -> pbU.RNoparam
-	9, // 5: pbU.UserServices.UserFoodByName:input_type -> pbU.FoodByName
-	8, // 6: pbU.UserServices.UserMenuByID:input_type -> pbU.MenuID
-	1, // 7: pbU.UserServices.Signup:output_type -> pbU.SignupRespnse
-	3, // 8: pbU.UserServices.VerifyOTP:output_type -> pbU.VerifyOTPRespnse
-	5, // 9: pbU.UserServices.Login:output_type -> pbU.LoginResponse
-	7, // 10: pbU.UserServices.UserMenuList:output_type -> pbU.MenuItem
-	7, // 11: pbU.UserServices.UserFoodByName:output_type -> pbU.MenuItem
-	7, // 12: pbU.UserServices.UserMenuByID:output_type -> pbU.MenuItem
-	7, // [7:13] is the sub-list for method output_type
-	1, // [1:7] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	7,  // 0: pbU.MenuList.item:type_name -> pbU.MenuItem
+	0,  // 1: pbU.UserServices.Signup:input_type -> pbU.SignupRequest
+	2,  // 2: pbU.UserServices.VerifyOTP:input_type -> pbU.VerifyOTPRequest
+	4,  // 3: pbU.UserServices.Login:input_type -> pbU.LoginRequest
+	6,  // 4: pbU.UserServices.UserMenuList:input_type -> pbU.RNoParam
+	9,  // 5: pbU.UserServices.UserFoodByName:input_type -> pbU.FoodByName
+	8,  // 6: pbU.UserServices.UserMenuByID:input_type -> pbU.MenuID
+	1,  // 7: pbU.UserServices.Signup:output_type -> pbU.SignupRespnse
+	3,  // 8: pbU.UserServices.VerifyOTP:output_type -> pbU.VerifyOTPRespnse
+	5,  // 9: pbU.UserServices.Login:output_type -> pbU.LoginResponse
+	10, // 10: pbU.UserServices.UserMenuList:output_type -> pbU.MenuList
+	7,  // 11: pbU.UserServices.UserFoodByName:output_type -> pbU.MenuItem
+	7,  // 12: pbU.UserServices.UserMenuByID:output_type -> pbU.MenuItem
+	7,  // [7:13] is the sub-list for method output_type
+	1,  // [1:7] is the sub-list for method input_type
+	1,  // [1:1] is the sub-list for extension type_name
+	1,  // [1:1] is the sub-list for extension extendee
+	0,  // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_user_proto_init() }
@@ -782,7 +782,7 @@ func file_user_proto_init() {
 			}
 		}
 		file_user_proto_msgTypes[6].Exporter = func(v any, i int) any {
-			switch v := v.(*RNoparam); i {
+			switch v := v.(*RNoParam); i {
 			case 0:
 				return &v.state
 			case 1:
